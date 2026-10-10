@@ -1,6 +1,6 @@
 # Proyecto Hermana
 
-Web profesional + plataforma de venta de cursos para mi hermana.
+**Key Angel Beauty**: web profesional + plataforma de formaciones de Kay Villorina, Lash Master y educadora en Mérida (Badajoz).
 
 > **Estado:** fase de definición (requisitos y dirección de estilo). Aún no hay código.
 
@@ -14,6 +14,7 @@ Web profesional + plataforma de venta de cursos para mi hermana.
 
 | Documento | Contenido |
 |---|---|
+| [`docs/marca.md`](docs/marca.md) | Marca Key Angel Beauty: identidad, servicios, formaciones y paleta |
 | [`docs/requisitos.md`](docs/requisitos.md) | Visión, módulos, funcionalidades y alcance por fases |
 | [`docs/decisiones.md`](docs/decisiones.md) | Decisiones tomadas y preguntas abiertas |
 | [`docs/estilo.md`](docs/estilo.md) | Dirección visual e inspiraciones (pendiente de elegir) |
