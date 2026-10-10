@@ -39,5 +39,5 @@
 - 2026-10-10: Instagram no es accesible desde el entorno cloud y no se usan credenciales ni scraping.
 - Se pide a Kay la **exportación oficial** (solo Publicaciones, Reels e Historias, sin Mensajes; formato HTML; calidad Alta). Se envía por WhatsApp como **documento**, o por Drive o WeTransfer si pesa más de 2 GB.
 - También se piden **originales de la galería** (retratos, trabajos, formaciones, logo en alta).
-- Guía para Kay: `docs/guias/guia-instagram-kay.pdf`. Se genera con `docs/guias/generar_guia_instagram.py`.
+- Guía para Kay (1 página): `docs/guias/guia-instagram-kay.pdf`. Se genera con `docs/guias/generar_guia_instagram.py`.
 - [ ] Recibir el ZIP y los originales, y organizarlos en `assets/`.
