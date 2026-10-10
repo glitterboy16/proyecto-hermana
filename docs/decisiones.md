@@ -20,3 +20,16 @@
 - [ ] ¿Qué idiomas tendrá el sitio?
 - [ ] ¿Tiene ya marca? (logo, colores, tipografía, dominio)
 - [ ] Stack técnico (por decidir cuando estén claros los requisitos)
+
+## Recursos pendientes de recibir
+
+- [ ] Nombre de la marca
+- [ ] Instagram de mi hermana (fuente de fotos, vídeos, información y material)
+- [ ] Bocetos e imágenes de referencia hechos por ella
+
+## Proceso acordado
+
+1. Recibir los recursos de arriba.
+2. Buscar webs y plataformas reales similares, muy bien hechas, como referencia.
+3. Elegir la dirección de diseño (registrar en `docs/estilo.md`).
+4. Después, contenido y desarrollo.
