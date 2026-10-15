@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Estado del proyecto · Key Angel Beauty</title>
+<meta name="description" content="Avance de la web de Key Angel Beauty: proceso, prototipo, cronología y pendientes.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#FBF7F0">
+<link rel="icon" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&family=Pinyon+Script&display=swap">
+<link rel="stylesheet" href="css/estilos.css">
+<style>
+.nav__back{min-height:44px;padding:0 20px;white-space:nowrap}
+.status-hero{padding-block:clamp(56px,8vw,104px) clamp(40px,5vw,64px);background:linear-gradient(115deg,#FBF6EE 0%,#F4EADB 60%,#EDDDC5 100%)}
+.status-hero h1{font-size:clamp(2.6rem,5.6vw,4.6rem);font-weight:400;line-height:1}
+.status-hero .script{margin:.9rem 0 1.4rem}
+.status-hero__meta{display:flex;flex-wrap:wrap;gap:10px 28px;margin:0;font-size:.9rem;color:var(--ink-2)}
+.status-hero__meta strong{font-weight:500;color:var(--ink)}
+.block{padding-block:clamp(56px,7vw,96px);border-top:1px solid var(--line)}
+.block:first-of-type{border-top:0}
+.block h2{font-size:clamp(2rem,3.6vw,2.9rem);font-weight:400;margin-bottom:2rem}
+.block__lead{max-width:62ch;margin:-1rem 0 2rem;color:var(--ink-2)}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;list-style:none;margin:0;padding:0;background:var(--line);border:1px solid var(--line)}
+.step{display:flex;flex-direction:column;gap:14px;padding:28px 24px 30px;background:var(--ivory)}
+.step__num{font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-ink)}
+.step h3{font-size:1.65rem;font-weight:500}
+.step p{margin:0;font-size:.92rem;color:var(--ink-2)}
+.state{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;padding:6px 12px;font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;border:1px solid var(--line)}
+.state::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.state--done{color:var(--gold-ink);background:rgba(176,138,79,.12);border-color:rgba(176,138,79,.4)}
+.state--doing{color:#FFF9EF;background:linear-gradient(135deg,var(--bronze-1),var(--bronze-2));border-color:transparent}
+.state--todo{color:var(--ink-2);border-style:dashed;border-color:var(--muted)}
+.state--todo::before{background:none;border:1px solid currentColor}
+.checks{display:grid;gap:8px;list-style:none;margin:0;padding:0;font-size:.92rem}
+.checks li{position:relative;padding-left:24px}
+.checks li::before{position:absolute;left:0;top:0;font-weight:500}
+.checks .ok::before{content:"✓";color:var(--gold-ink)}
+.checks .no{color:var(--muted)}
+.checks .no::before{content:"○";color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;list-style:none;margin:0;padding:0}
+.card{position:relative;display:flex;flex-direction:column;gap:10px;height:100%;padding:32px 32px 28px;text-decoration:none;background:#fff;border:1px solid var(--line);transition:border-color .3s,transform .35s var(--ease),box-shadow .35s var(--ease)}
+.card:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 30px 50px -36px rgba(60,40,15,.5)}
+.card__tag{font-size:.66rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-ink)}
+.card h3{font-size:clamp(1.7rem,2.6vw,2.1rem);font-weight:500}
+.card p{margin:0;color:var(--ink-2)}
+.card__go{display:inline-flex;align-items:center;gap:10px;margin-top:auto;padding-top:14px;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-ink)}
+.card__go svg{width:16px;height:16px;transition:transform .35s var(--ease)}
+.card:hover .card__go svg{transform:translateX(4px)}
+.timeline{display:grid;gap:0;list-style:none;margin:0;padding:0}
+.timeline>li{display:grid;grid-template-columns:200px minmax(0,1fr);gap:32px;padding:28px 0;border-top:1px solid var(--line)}
+.timeline time{font:400 1.6rem/1.1 var(--f-display);color:var(--ink)}
+.timeline ul{display:grid;gap:8px;list-style:none;margin:0;padding:0}
+.timeline ul li{position:relative;padding-left:21px;color:var(--ink-2)}
+.timeline ul li::before,.todo li::before{content:"";position:absolute;left:0;top:.68em;width:7px;height:7px;border:1px solid var(--gold);transform:rotate(45deg)}
+.todo-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(32px,5vw,72px)}
+.todo-grid h3{font-size:1.5rem;font-weight:500;margin-bottom:1.2rem}
+.todo{display:grid;gap:12px;list-style:none;margin:0;padding:0}
+.todo li{position:relative;padding-left:21px;color:var(--ink-2)}
+.todo small{display:block;font-size:.85rem;color:var(--muted)}
+.next{display:grid;gap:0;list-style:none;margin:0;padding:0;counter-reset:next}
+.next li{display:grid;grid-template-columns:3rem minmax(0,1fr);gap:16px;padding:20px 0;border-top:1px solid var(--line);counter-increment:next}
+.next li:last-child{border-bottom:1px solid var(--line)}
+.next li::before{content:counter(next,decimal-leading-zero);padding-top:.25rem;font-size:.76rem;letter-spacing:.2em;color:var(--gold-ink)}
+.next strong{display:block;font:500 1.35rem/1.25 var(--f-display);color:var(--ink)}
+.next span{color:var(--ink-2)}
+.footer .footer__bottom{margin-top:0;padding-top:0;border-top:0}
+@media (max-width:960px){
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .timeline>li{grid-template-columns:minmax(0,1fr);gap:14px}
+}
+@media (max-width:640px){
+  .steps,.cards,.todo-grid{grid-template-columns:minmax(0,1fr)}
+  .card{padding:26px 22px 24px}
+  .nav__inner{gap:12px}
+  .nav__back{padding:0 12px;letter-spacing:.14em}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<header class="nav" id="top">
+  <div class="wrap nav__inner">
+    <a class="brand" href="index.html" aria-label="Key Angel Beauty, ir a la web">
+      <img src="img/logo.png" alt="" width="315" height="170">
+      <span class="brand__name">Key Angel<small>Beauty</small></span>
+    </a>
+    <a class="btn btn--outline nav__back" href="index.html">Ver la web</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="status-hero" aria-labelledby="status-title">
+    <div class="wrap">
+      <p class="eyebrow">Estado del proyecto</p>
+      <h1 id="status-title">Web y academia<br>Key Angel Beauty</h1>
+      <p class="script">Beauty with Purpose</p>
+      <p class="status-hero__meta">
+        <span><strong>Versión:</strong> prototipo v0.1 de la home</span>
+        <span><strong>Actualizado:</strong> 15 de octubre de 2026</span>
+      </p>
+    </div>
+  </section>
+
+  <div class="wrap">
+
+    <section class="block" aria-labelledby="proceso-title">
+      <h2 id="proceso-title">Proceso acordado</h2>
+      <ol class="steps">
+        <li class="step">
+          <span class="step__num">Paso 01</span>
+          <h3>Recursos</h3>
+          <span class="state state--doing">Casi completo</span>
+          <ul class="checks">
+            <li class="ok">Marca Key Angel Beauty</li>
+            <li class="ok">Instagram (capturas)</li>
+            <li class="ok">Bocetos de Kay</li>
+            <li class="no">Fotos originales</li>
+          </ul>
+        </li>
+        <li class="step">
+          <span class="step__num">Paso 02</span>
+          <h3>Referencias reales</h3>
+          <span class="state state--done">Hecho</span>
+          <p>Moodboard con tres direcciones (A, B y C) y patrones de academias online.</p>
+        </li>
+        <li class="step">
+          <span class="step__num">Paso 03</span>
+          <h3>Dirección visual</h3>
+          <span class="state state--todo">Pendiente</span>
+          <p>Falta la elección final. El prototipo sigue la recomendación: base A, aire de B y negro de C.</p>
+        </li>
+        <li class="step">
+          <span class="step__num">Paso 04</span>
+          <h3>Desarrollo</h3>
+          <span class="state state--doing">En curso</span>
+          <p>Prototipo de la home v0.1, estático y publicado para revisarlo.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="block" aria-labelledby="ver-title">
+      <h2 id="ver-title">Para ver</h2>
+      <ul class="cards">
+        <li>
+          <a class="card" href="index.html">
+            <span class="card__tag">Prototipo v0.1</span>
+            <h3>Prototipo de la home</h3>
+            <p>Portada completa: servicios, academia, sobre mí, testimonios y reserva por WhatsApp. Las fotos son provisionales.</p>
+            <span class="card__go">Abrir <svg aria-hidden="true"><use href="#i-arrow"/></svg></span>
+          </a>
+        </li>
+        <li>
+          <a class="card" href="propuestas/moodboard.html" data-local="../docs/propuestas/01-moodboard.html">
+            <span class="card__tag">Propuesta 1</span>
+            <h3>Moodboard A/B/C</h3>
+            <p>Las tres direcciones visuales (Atelier Dorado, Editorial Silencioso y Noir Doré) con sus referencias reales.</p>
+            <span class="card__go">Abrir <svg aria-hidden="true"><use href="#i-arrow"/></svg></span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="block" aria-labelledby="crono-title">
+      <h2 id="crono-title">Cronología</h2>
+      <ol class="timeline">
+        <li>
+          <time datetime="2026-10-10">10 oct 2026</time>
+          <ul>
+            <li>Requisitos del proyecto: web profesional y plataforma de cursos.</li>
+            <li>Marca documentada y bocetos de Kay guardados como referencia.</li>
+            <li>Moodboard con las direcciones A, B y C.</li>
+            <li>Guía para que Kay exporte su material de Instagram.</li>
+          </ul>
+        </li>
+        <li>
+          <time datetime="2026-10-15">15 oct 2026</time>
+          <ul>
+            <li>Prototipo v0.1 de la home, publicado en GitHub Pages.</li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+
+    <section class="block" aria-labelledby="pend-title">
+      <h2 id="pend-title">Pendiente</h2>
+      <div class="todo-grid">
+        <div>
+          <h3>Decisiones abiertas</h3>
+          <ul class="todo">
+            <li>Dirección visual final<small>El prototipo usa la recomendación A+B+C.</small></li>
+            <li>Formato de los cursos<small>Grabados + PDFs, por módulos, con progreso…</small></li>
+            <li>Cómo se cobrará<small>Pago único o suscripción; pasarela (Stripe, PayPal…).</small></li>
+            <li>Facturación<small>España, en euros.</small></li>
+            <li>Alojamiento de los vídeos<small>Con protección contra descargas.</small></li>
+            <li>Funciones tipo CRM<small>Gestión de alumnas, contactos, emails…</small></li>
+            <li>Idiomas del sitio</li>
+            <li>Stack técnico<small>Se decide cuando estén claros los requisitos.</small></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Recursos de Kay</h3>
+          <ul class="todo">
+            <li>Fotos originales y logo en alta<small>Para sustituir las imágenes provisionales, recortadas de capturas.</small></li>
+            <li>Número de WhatsApp<small>Para que la reserva abra el chat con el mensaje ya escrito.</small></li>
+            <li>Enlaces de TikTok y YouTube<small>Aparecen en el footer de los bocetos.</small></li>
+            <li>Testimonios reales<small>Con permiso de cada clienta o alumna.</small></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="next-title">
+      <h2 id="next-title">Próximos pasos</h2>
+      <ol class="next">
+        <li><div><strong>Revisar el prototipo con Kay</strong><span>Elegir la dirección visual o confirmar la recomendación A+B+C.</span></div></li>
+        <li><div><strong>Cambiar las imágenes provisionales</strong><span>Usar las fotos originales y el logo en alta.</span></div></li>
+        <li><div><strong>Completar el contacto</strong><span>Añadir el número de WhatsApp, TikTok, YouTube y testimonios reales.</span></div></li>
+        <li><div><strong>Cerrar la academia online</strong><span>Formato de cursos, cobro y vídeos. Con eso se elige el stack.</span></div></li>
+        <li><div><strong>Diseñar las páginas siguientes</strong><span>Ficha de cada formación y catálogo de la academia.</span></div></li>
+      </ol>
+    </section>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__bottom">
+    <span>© 2026 Key Angel Beauty · Kay Villorina</span>
+    <a href="index.html">Volver a la web</a>
+  </div>
+</footer>
+
+<script>
+  if (location.protocol === 'file:') {
+    document.querySelectorAll('[data-local]').forEach((a) => { a.href = a.dataset.local; });
+  }
+</script>
+<script src="js/main.js" defer></script>
+</body>
+</html>

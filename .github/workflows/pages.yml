@@ -1,0 +1,50 @@
+name: Publicar en GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v5
+
+      - name: Montar _site desde web/
+        run: |
+          mkdir -p _site/propuestas
+          cp -R web/. _site/
+          # El moodboard es un fragmento (formato artifact): se le añade el esqueleto HTML y noindex.
+          {
+            printf '%s\n' '<!doctype html>' '<html lang="es">' '<head>' '<meta charset="utf-8">' \
+              '<meta name="viewport" content="width=device-width, initial-scale=1">' \
+              '<meta name="robots" content="noindex">'
+            cat docs/propuestas/01-moodboard.html
+          } > _site/propuestas/moodboard.html
+          find _site -type f | sort
+
+      - name: Configurar Pages
+        uses: actions/configure-pages@v5
+
+      - name: Subir el artefacto
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+      - name: Publicar
+        id: deployment
+        uses: actions/deploy-pages@v4
