@@ -102,6 +102,17 @@ if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-m
     revealer.disconnect();
     reveals.forEach((el) => el.classList.add('is-in'));
   }, 2000);
+
+  // En pantallas muy altas el margen inferior del observer puede tapar lo último de la página:
+  // al llegar al final se muestra lo que quede pendiente.
+  const revealRest = () => {
+    if (window.scrollY + window.innerHeight < document.documentElement.scrollHeight - 4) return;
+    revealer.disconnect();
+    reveals.forEach((el) => el.classList.add('is-in'));
+    window.removeEventListener('scroll', revealRest);
+  };
+  window.addEventListener('scroll', revealRest, { passive: true });
+  revealRest();
 }
 
 /* WhatsApp */

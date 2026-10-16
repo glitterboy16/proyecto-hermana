@@ -50,7 +50,7 @@
 | `--gold` | `#B08A4F` | Líneas, iconos y detalles. **No** para texto pequeño (3:1) |
 | `--gold-ink` | `#7A5A26` | Texto dorado sobre claro (5,9:1) |
 | `--gold-hi` | `#D7B97E` | Dorado sobre negro (10:1) |
-| `--bronze-1` → `--bronze-2` | `#94702F` → `#6B4E1F` | Degradado de los botones principales |
+| `--bronze-1` → `--bronze-2` | `#8F6B2C` → `#6B4E1F` | Degradado de los botones principales |
 | `--noir` / `--noir-2` | `#12100D` / `#1B1814` | Academy y llamada final |
 | `--on-noir` / `--on-noir-muted` | `#EFE6D8` / `#B9AD9C` | Texto sobre negro |
 
@@ -59,7 +59,7 @@
 
 ### Reglas
 
-- Los botones usan **bronce oscuro** (`#94702F` → `#6B4E1F`) y no el dorado de la marca para cumplir el contraste **AA** con texto claro (`#FFF9EF`). Allí donde cae el texto, el contraste es de 4,7:1 o más (5,6:1 en el centro). El dorado `#B08A4F` solo daría 3:1, así que el degradado no debe aclararse.
+- Los botones usan **bronce oscuro** (`#8F6B2C` → `#6B4E1F`) y no el dorado de la marca para cumplir el contraste **AA** con texto claro (`#FFF9EF`). Incluso en el extremo más claro del degradado el contraste es de 4,65:1. El dorado `#B08A4F` solo daría 3:1, así que el degradado no debe aclararse.
 - Sin texto con degradado: "Comienza aquí" usa un color sólido (`--gold-hi`).
 - Apariciones suaves al hacer scroll, que se desactivan con `prefers-reduced-motion`.
 
